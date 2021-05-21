@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>unsplash-images</title>
+	<!-- <meta http-equiv="refresh" content="5"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	<script src="https://kit.fontawesome.com/18fc5b7198.js" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/ico" href="./favicon.ico">
+
+	<style>
+
+		body{
+			min-height: 100vh;
+			width: 100%;
+			background: orange;
+			align-content: center;
+			font-family: consolas;
+		}
+
+		#images{
+			width: 80%;
+			margin: 20px auto;
+			align-content: center;
+			justify-content: center;
+			text-align: center;
+		}
+
+		img{
+			width: 320px;
+			height: 320px;
+			margin: 20px;
+		}
+
+
+
+		@media (max-width: 990px) {
+			
+					body{
+						background: #87D8D3;
+						text-align: center;
+						margin: 20px;
+						width: 100%;
+
+					}	
+
+
+					#images{ 
+						width: 80%;
+						margin:20px auto;
+						align-content: center;
+						justify-content: center;
+					}
+
+					#images h1 i{
+						color: #fff;
+					}
+
+
+			}
+	</style>
+
+</head>
+<body id="body">
+	<h1 style="text-align: center; color:#fff; font-weight: 700;">modern images viewer</h1>
+
+	<main id="images"></main>
+
+
+<script>
+	const url=`https://api.unsplash.com/photos/random/?client_id=3-TA7-FDJyfS_J06ZmQ7MjabDWLpdQEBhi3hwfR03yM&count=12`;
+
+	const url2=`https://api.unsplash.com/photos/random/?client_id=3-TA7-FDJyfS_J06ZmQ7MjabDWLpdQEBhi3hwfR03yM&count=21`;
+
+	const imagenew=document.getElementById('images');
+
+	async function fetchImages(){
+		const img=await fetch(url);
+		const images=await img.json();
+		console.log(images);
+		for(var i=0;i<images.length;i++){
+			const img=(images[i].urls.small);
+			const imgmain=document.createElement('img');
+			imgmain.src=img;
+			document.getElementById('images').appendChild(imgmain);
+
+		}
+/*	const h1=document.createElement('h1');
+	h1.innerHTML='<i class="fas fa-redo"></i>';
+	h1.onclick="fetchImages()";
+	imagenew.appendChild(h1);	*/
+
+	}
+
+fetchImages()
+
+document.getElementById('body').onscroll= function(){
+			fetchnewImages()
+		};
+
+	async function fetchnewImages(){
+		console.log('scrolled');
+		const img=await fetch(url2);
+		const images=await img.json();
+		console.log(images);
+		for(var i=0;i<images.length;i++){
+			const img=(images[i].urls.small);
+			const imgmain=document.createElement('img');
+			imgmain.src=img;
+			
+		document.getElementById('images').appendChild(imgmain);
+}}
+		
+
+	</script>
+</body>
+</html>
