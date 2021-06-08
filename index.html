@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>unsplash-images</title>
+	<title>unsplash-images | V!n</title>
 	<!-- <meta http-equiv="refresh" content="5"> -->
 	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 	<script src="https://kit.fontawesome.com/18fc5b7198.js" crossorigin="anonymous"></script>
@@ -19,36 +19,31 @@
 		}
 
 		#images{
-			max-width: 90%;
-      			margin: auto;
+				display: flex;
+				justify-content:  center;
+				max-width: 100%;
+				flex-wrap:wrap;
 			
 		}
 
+
 		img{
-			width: 320px;
-			height: 320px;
+			width: 300px;
+			height: 300px;
 			margin: 20px;
 		}
 
 
 
-		@media (max-width: 990px) {
+		@media screen and (max-width: 800px) {
 			
-					body{
-						background: #87D8D3;
-						text-align: center;
-						align-content:center;
-						margin: 20px;
-						width: 100%;
-
-					}	
-
-
-					#images{
-						display:flex;
+					
+					#images img{
+						display: flex;
 						flex-direction:column;
+						justify-content:  center;
 						max-width: 90%;
-      						margin: auto;
+						flex-wrap:wrap;
 					}
 
 					#images h1 i{
